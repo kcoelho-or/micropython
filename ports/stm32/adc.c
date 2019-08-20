@@ -52,14 +52,14 @@
 
 /* ADC defintions */
 
-//#if defined(STM32H7)
+//#if defined(STM32H7)					//--MYEDIT--//
+//#define ADCx                    (ADC3)		//--MYEDIT--//
+//#define PIN_ADC_MASK            PIN_ADC3		//--MYEDIT--//
+//#define pin_adc_table           pin_adc3		//--MYEDIT--//
+//#else							//--MYEDIT--//
 #define ADCx                    (ADC3)
 #define PIN_ADC_MASK            PIN_ADC3
 #define pin_adc_table           pin_adc3
-//#else
-//#define ADCx                    (ADC1)
-//#define PIN_ADC_MASK            PIN_ADC1
-//#define pin_adc_table           pin_adc1
 //#endif
 
 #define ADCx_CLK_ENABLE         __HAL_RCC_ADC1_CLK_ENABLE
