@@ -100,8 +100,10 @@ void HAL_ADC_MspInit(ADC_HandleTypeDef* hadc)
     PF5     ------> ADC3_IN15
     PF6     ------> ADC3_IN4
     PF7     ------> ADC3_IN5 
+    PF8     ------> ADC3_THR_ADC_A
+    PF10    ------> ADC3_THR_ADC_B
     */
-    GPIO_InitStruct.Pin = GPIO_PIN_4|GPIO_PIN_5|GPIO_PIN_6|GPIO_PIN_7;
+    GPIO_InitStruct.Pin = GPIO_PIN_4|GPIO_PIN_5|GPIO_PIN_6|GPIO_PIN_7|GPIO_PIN_8|GPIO_PIN_10;
     GPIO_InitStruct.Mode = GPIO_MODE_ANALOG;
     GPIO_InitStruct.Pull = GPIO_NOPULL;
     HAL_GPIO_Init(GPIOF, &GPIO_InitStruct);
@@ -135,7 +137,7 @@ void HAL_ADC_MspDeInit(ADC_HandleTypeDef* hadc)
     PF6     ------> ADC3_IN4
     PF7     ------> ADC3_IN5 
     */
-    HAL_GPIO_DeInit(GPIOF, GPIO_PIN_4|GPIO_PIN_5|GPIO_PIN_6|GPIO_PIN_7);
+    HAL_GPIO_DeInit(GPIOF, GPIO_PIN_4|GPIO_PIN_5|GPIO_PIN_6|GPIO_PIN_7|GPIO_PIN_8|GPIO_PIN_10);
 
   /* USER CODE BEGIN ADC3_MspDeInit 1 */
 
@@ -170,13 +172,15 @@ void HAL_CAN_MspInit(CAN_HandleTypeDef* hcan)
     /**CAN1 GPIO Configuration    
     PA11     ------> CAN1_RX
     PA12     ------> CAN1_TX 
+    PD1      ------> CAN1_TX
+    PD0      ------> CAN1_RX
     */
-    GPIO_InitStruct.Pin = GPIO_PIN_11|GPIO_PIN_12;
+    GPIO_InitStruct.Pin = GPIO_PIN_1|GPIO_PIN_0;	// GPIO_PIN_11|GPIO_PIN_12
     GPIO_InitStruct.Mode = GPIO_MODE_AF_PP;
     GPIO_InitStruct.Pull = GPIO_NOPULL;
     GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_VERY_HIGH;
     GPIO_InitStruct.Alternate = GPIO_AF9_CAN1;
-    HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
+    HAL_GPIO_Init(GPIOD, &GPIO_InitStruct);		// GPIOA --> GPIOD
 
   /* USER CODE BEGIN CAN1_MspInit 1 */
 
@@ -191,7 +195,7 @@ void HAL_CAN_MspInit(CAN_HandleTypeDef* hcan)
     __HAL_RCC_CAN2_CLK_ENABLE();
     HAL_RCC_CAN1_CLK_ENABLED++;
     if(HAL_RCC_CAN1_CLK_ENABLED==1){
-      __HAL_RCC_CAN1_CLK_ENABLE();
+      __HAL_RCC_CAN1_CLK_ENABLE();		
     }
   
     __HAL_RCC_GPIOB_CLK_ENABLE();

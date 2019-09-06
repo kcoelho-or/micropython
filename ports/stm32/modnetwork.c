@@ -51,9 +51,9 @@
 // Poll lwIP every 128ms
 #define LWIP_TICK(tick) (((tick) & ~(SYSTICK_DISPATCH_NUM_SLOTS - 1) & 0x7f) == 0)
 
-u32_t sys_now(void) {
-    return mp_hal_ticks_ms();
-}
+//u32_t sys_now(void) {
+//    return mp_hal_ticks_ms();
+//}
 
 STATIC void pyb_lwip_poll(void) {
     #if MICROPY_PY_WIZNET5K
@@ -125,7 +125,7 @@ STATIC MP_DEFINE_CONST_FUN_OBJ_0(network_route_obj, network_route);
 STATIC const mp_rom_map_elem_t mp_module_network_globals_table[] = {
     { MP_ROM_QSTR(MP_QSTR___name__), MP_ROM_QSTR(MP_QSTR_network) },
 
-    #if defined(MICROPY_HW_ETH_MDC)
+    #if defined(MICROPY_HW_ETH_MDC)   // MDC --> RMII
     { MP_ROM_QSTR(MP_QSTR_LAN), MP_ROM_PTR(&network_lan_type) },
     #endif
     #if MICROPY_PY_NETWORK_CYW43

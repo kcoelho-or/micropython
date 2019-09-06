@@ -164,7 +164,7 @@ STATIC mp_obj_t socket_connect(mp_obj_t self_in, mp_obj_t addr_in) {
     // check if we need to select a NIC
     socket_select_nic(self, ip);
 
-    // call the NIC to connect the socket
+    // call the NIC to connect the socket   //---CODE BREAKING HERE FOR ERROR---//
     int _errno;
     if (self->nic_type->connect(self, ip, port, &_errno) != 0) {
         mp_raise_OSError(_errno);

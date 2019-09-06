@@ -33,7 +33,7 @@
 #include "mpu.h"
 #include "eth.h"
 
-#if defined(MICROPY_HW_ETH_MDC)
+#if defined(MICROPY_HW_ETH_MDC)    // MDC--> RMII
 
 #include "lwip/etharp.h"
 #include "lwip/dns.h"
