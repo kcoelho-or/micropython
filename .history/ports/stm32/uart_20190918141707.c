@@ -191,7 +191,7 @@ bool uart_init(pyb_uart_obj_t *uart_obj,
             pins[0] = MICROPY_HW_UART1_TX;
             pins[1] = MICROPY_HW_UART1_RX;
             __HAL_RCC_USART1_CLK_ENABLE();
-            break;
+            // break;
         #endif
 
         #if defined(MICROPY_HW_UART2_TX) && defined(MICROPY_HW_UART2_RX)

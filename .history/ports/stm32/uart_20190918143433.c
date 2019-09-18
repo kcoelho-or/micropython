@@ -141,9 +141,9 @@ bool uart_exists(int uart_id) {
         case PYB_UART_3: return true;
         #endif
 
-        #if defined(MICROPY_HW_UART4_TX) && defined(MICROPY_HW_UART4_RX)
+        //#if defined(MICROPY_HW_UART4_TX) && defined(MICROPY_HW_UART4_RX)
         case PYB_UART_4: return true;
-        #endif
+        //#endif
 
         #if defined(MICROPY_HW_UART5_TX) && defined(MICROPY_HW_UART5_RX)
         case PYB_UART_5: return true;

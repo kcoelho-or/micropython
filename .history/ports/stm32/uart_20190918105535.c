@@ -591,12 +591,6 @@ uint32_t uart_get_baudrate(pyb_uart_obj_t *self) {
         #if defined(USART6)
         || self->uart_id == 6
         #endif
-        #if defined(UART7)
-        || self->uart_id == 7
-        #endif
-        #if defined(UART8)
-        || self->uart_id == 8
-        #endif
         #if defined(UART9)
         || self->uart_id == 9
         #endif

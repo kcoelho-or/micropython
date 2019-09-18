@@ -536,7 +536,7 @@ void uart_attach_to_repl(pyb_uart_obj_t *self, bool attached) {
 }
 
 uint32_t uart_get_baudrate(pyb_uart_obj_t *self) {
-    uint32_t uart_clk = 0;
+    uint32_t uart_clk = 1;
 
     #if defined(STM32F0)
     uart_clk = HAL_RCC_GetPCLK1Freq();
@@ -590,12 +590,6 @@ uint32_t uart_get_baudrate(pyb_uart_obj_t *self) {
     if (self->uart_id == 1
         #if defined(USART6)
         || self->uart_id == 6
-        #endif
-        #if defined(UART7)
-        || self->uart_id == 7
-        #endif
-        #if defined(UART8)
-        || self->uart_id == 8
         #endif
         #if defined(UART9)
         || self->uart_id == 9
