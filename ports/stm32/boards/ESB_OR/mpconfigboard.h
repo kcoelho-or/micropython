@@ -1,5 +1,5 @@
-#define MICROPY_HW_BOARD_NAME       "OLIMEX STM32-E407"
-#define MICROPY_HW_MCU_NAME         "STM32F407"			
+#define MICROPY_HW_BOARD_NAME       "STM32F439"
+#define MICROPY_HW_MCU_NAME         "STM32F437"			
 
 // #define MICROPY_PY_LWIP             (1)		   //--MYEDIT--//
 // #define MICROPY_PY_NETWORK          (1) 
@@ -26,8 +26,8 @@
 #define MICROPY_HW_FLASH_LATENCY (FLASH_LATENCY_7) 	//--MYEDIT--//
 
 // UART config
-#define MICROPY_HW_UART1_TX     (pin_A9)		// A9  
-#define MICROPY_HW_UART1_RX     (pin_A10)		// A10
+#define MICROPY_HW_UART1_TX     (pin_B6)		// A9  
+#define MICROPY_HW_UART1_RX     (pin_B7)		// A10
 #define MICROPY_HW_UART2_TX     (pin_D5)		// D5
 #define MICROPY_HW_UART2_RX     (pin_D6)		// D6
 #define MICROPY_HW_UART2_RTS    (pin_A1)
